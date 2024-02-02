@@ -16,8 +16,8 @@ Person::Person(const char *name_, Person* father_, Person* mother_){
 }
 
 Person::~Person(){
-    delete []name;
-    delete []children;
+    delete[] name;
+    delete[] children;
 }
 
 void Person::addChild(Person *newChild){
@@ -68,6 +68,7 @@ char* Person::compute_relation(int level){
     for(int i = 2; i <= level; i++){
         char *temp2 = new char[strlen("great ") + strlen(temp) + 1];
         strcat(strcpy(temp2, "great "), temp);
+        delete[] temp;
         temp = temp2;
     }
     return temp;
